@@ -5,24 +5,24 @@
 #define LOG_DOSYA "/var/log/syslog"
 #define MAX_SATIR_UZUNLUK 1024
 
-// Bagli liste dugum yapisi
+// Bağlı liste düğüm yapısı
 typedef struct LogDugum {
     char log[MAX_SATIR_UZUNLUK];
     struct LogDugum *sonraki;
 } LogDugum;
 
-// Yeni dugum olusturma fonksiyonu
+// Yeni düğüm oluşturma fonksiyonu
 LogDugum* yeniDugum(const char *log) {
     LogDugum *yeni = (LogDugum*)malloc(sizeof(LogDugum));
     if (yeni) {
         strncpy(yeni->log, log, MAX_SATIR_UZUNLUK);
-        yeni->log[MAX_SATIR_UZUNLUK - 1] = '\0'; // Guvenlik icin son karakteri belirle
+        yeni->log[MAX_SATIR_UZUNLUK - 1] = '\0'; // Guvenlik için son karakteri belirle
         yeni->sonraki = NULL;
     }
     return yeni;
 }
 
-// Bagli listeye dugum ekleme fonksiyonu
+// Bağlı listeye düğüm ekleme fonksiyonu
 void dugumEkle(LogDugum **bas, const char *log) {
     LogDugum *yeni = yeniDugum(log);
     if (!yeni) return;
@@ -37,7 +37,7 @@ void dugumEkle(LogDugum **bas, const char *log) {
     }
 }
 
-// Belirtilen anahtar kelimeye gore loglari filtreleme ve yazdirma
+// Belirtilen anahtar kelimeye göre logları filtreleme ve yazdırma
 void logFiltrele(LogDugum *bas, const char *anahtar) {
     while (bas) {
         if (strstr(bas->log, anahtar)) {
@@ -47,7 +47,7 @@ void logFiltrele(LogDugum *bas, const char *anahtar) {
     }
 }
 
-// Bagli listeyi serbest birakma
+// Bağlı listeyi serbest bırakma
 void listeTemizle(LogDugum *bas) {
     while (bas) {
         LogDugum *gecici = bas;
