@@ -16,7 +16,7 @@ Tek yönlü bağlı liste (Singly Linked List) veri yapısını kullanarak logla
 
 Projeyi çalıştırmak için aşağıdaki adımları takip edin.
 
-1. Depoyu Klonlayın(Eğer bu linkte bir yer belirtmiyorsa sadece cod dosyasını manuel indirin.)
+1. Depoyu Klonlayın(Eğer bu linkte bir yer belirtmiyorsa sadece kod dosyasını manuel indirin.)
 
 git clone https://github.com/kullanici/syslog-linked-list.git
 cd syslog-linked-list
